@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="42" />
+        <Position x="54" y="126" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -27,9 +27,6 @@
           <DefaultAnnotationText>realtor-data.zip.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="brokered_by" size="254" source="File: D:\Level 4\Semester 2\Data warehouse\Section\realtor-data.zip.csv" type="V_String" />
@@ -51,7 +48,7 @@
     </Node>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="258" y="102" />
+        <Position x="258" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -83,7 +80,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-        <Position x="150" y="-30" />
+        <Position x="150" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -101,7 +98,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-        <Position x="174" y="330" />
+        <Position x="174" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -119,7 +116,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="378" y="330" />
+        <Position x="378" y="414" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -141,15 +138,12 @@
           <DefaultAnnotationText>second_half_for_ssis.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="7">
       <GuiSettings>
-        <Position x="378" y="102" />
+        <Position x="378" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -172,15 +166,12 @@
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings Macro="Cleanse.yxmc" />
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="558" y="-18" />
+        <Position x="558" y="66" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -200,7 +191,7 @@
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
-        <Position x="558" y="102" />
+        <Position x="558" y="186" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -219,7 +210,7 @@
     </Node>
     <Node ToolID="10">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="546" y="198" />
+        <Position x="546" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -242,16 +233,16 @@ Bedrooms = I...</DefaultAnnotationText>
     </Node>
     <Node ToolID="11">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="690" y="198" />
+        <Position x="690" y="282" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Expression>!IsNull([Sale_Date]) AND [Sale_Date] != ""</Expression>
+          <Expression><![CDATA[!IsNull([Sale_Date]) AND [Sale_Date] != "" And !IsNull([Street_Number]) AND [Street_Number] != "" ]]></Expression>
           <Mode>Custom</Mode>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>!IsNull([Sale_Date]) AND [Sale_Date] != ""</DefaultAnnotationText>
+          <DefaultAnnotationText>!IsNull([Sale_Date]) AND [Sale_Date] != "" And !IsNull([Street_Number]) AND [Str...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -259,7 +250,7 @@ Bedrooms = I...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="834" y="186" />
+        <Position x="834" y="270" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -276,7 +267,7 @@ Bedrooms = I...</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="942" y="174" />
+        <Position x="942" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -297,7 +288,7 @@ Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="1038" y="174" />
+        <Position x="1038" y="258" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -319,7 +310,7 @@ Day = DateTi...</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1326" y="114" />
+        <Position x="1326" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -341,15 +332,12 @@ Day = DateTi...</DefaultAnnotationText>
           <DefaultAnnotationText>alteryxpart1.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1338" y="222" />
+        <Position x="1338" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -371,25 +359,22 @@ Day = DateTi...</DefaultAnnotationText>
           <DefaultAnnotationText>alteryxpart2.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-        <Position x="1206" y="114" />
+        <Position x="1206" y="198" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Mode>First</Mode>
-          <N>20478</N>
+          <N>20346</N>
           <GroupFields orderChanged="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>First 20478 rows</DefaultAnnotationText>
+          <DefaultAnnotationText>First 20346 rows</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -397,17 +382,17 @@ Day = DateTi...</DefaultAnnotationText>
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-        <Position x="1206" y="222" />
+        <Position x="1206" y="306" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Mode>Last</Mode>
-          <N>2078</N>
+          <N>20346</N>
           <GroupFields orderChanged="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>Last 2078 rows</DefaultAnnotationText>
+          <DefaultAnnotationText>Last 20346 rows</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>

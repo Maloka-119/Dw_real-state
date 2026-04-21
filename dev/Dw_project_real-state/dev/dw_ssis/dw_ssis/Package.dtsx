@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{18213006-8D24-4A16-BC05-35919382BCF5}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{76D63A49-C031-4375-A808-9C518910C05E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -282,6 +282,66 @@
           DTS:ConnectRetryCount="1"
           DTS:ConnectRetryInterval="5"
           DTS:ConnectionString="Data Source=MALAK\SQLEXPRESS;Initial Catalog=RealEstateDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{38315BB3-0F2A-4164-97BD-87AE18A6EBD6}MALAK\SQLEXPRESS.RealEstateDW;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{C90183E3-1B65-40CC-A302-578DC361699C}"
+      DTS:ObjectName="MALAK\SQLEXPRESS.RealEstateDW 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MALAK\SQLEXPRESS;Initial Catalog=RealEstateDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{C90183E3-1B65-40CC-A302-578DC361699C}MALAK\SQLEXPRESS.RealEstateDW 1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW 2]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F82CF39E-1D1A-4266-A536-D45E09A99350}"
+      DTS:ObjectName="MALAK\SQLEXPRESS.RealEstateDW 2">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MALAK\SQLEXPRESS;Initial Catalog=RealEstateDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{F82CF39E-1D1A-4266-A536-D45E09A99350}MALAK\SQLEXPRESS.RealEstateDW 2;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW 3]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F7D91CF2-DE28-43BF-BD0B-88430B644654}"
+      DTS:ObjectName="MALAK\SQLEXPRESS.RealEstateDW 3">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MALAK\SQLEXPRESS;Initial Catalog=RealEstateDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{F7D91CF2-DE28-43BF-BD0B-88430B644654}MALAK\SQLEXPRESS.RealEstateDW 3;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW 4]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{AA6E8BBF-EB9B-4BBD-807A-5A739A4E6685}"
+      DTS:ObjectName="MALAK\SQLEXPRESS.RealEstateDW 4">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MALAK\SQLEXPRESS;Initial Catalog=RealEstateDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{AA6E8BBF-EB9B-4BBD-807A-5A739A4E6685}MALAK\SQLEXPRESS.RealEstateDW 4;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW 5]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5A80D386-1223-433A-B3A1-5C5BAC2B8B17}"
+      DTS:ObjectName="MALAK\SQLEXPRESS.RealEstateDW 5">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MALAK\SQLEXPRESS;Initial Catalog=RealEstateDW;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Package-{5A80D386-1223-433A-B3A1-5C5BAC2B8B17}MALAK\SQLEXPRESS.RealEstateDW 5;Auto Translate=False;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -803,9 +863,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Street_Number&quot;]"
-                      dataType="i4"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Street_Number&quot;]"
                       name="&quot;Street_Number&quot;"
                       truncationRowDisposition="FailComponent">
@@ -865,9 +926,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Zip_Code&quot;]"
-                      dataType="i4"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Zip_Code&quot;]"
                       name="&quot;Zip_Code&quot;"
                       truncationRowDisposition="FailComponent">
@@ -1153,9 +1215,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[&quot;Street_Number&quot;]"
-                      dataType="i4"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[&quot;Street_Number&quot;]"
                       name="&quot;Street_Number&quot;"
                       truncationRowDisposition="FailComponent">
@@ -1215,9 +1278,10 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[&quot;Zip_Code&quot;]"
-                      dataType="i4"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
+                      length="50"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[&quot;Zip_Code&quot;]"
                       name="&quot;Zip_Code&quot;"
                       truncationRowDisposition="FailComponent">
@@ -1354,13 +1418,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bedrooms"]}) ? 3 : (DT_I4)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bedrooms"]}</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bedrooms"]}) || [TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bedrooms"]}) == "" ? 3 : (DT_I4)[TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bedrooms"]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(["Bedrooms"]) ? 3 : (DT_I4)["Bedrooms"]</property>
+                          name="FriendlyExpression">ISNULL(["Bedrooms"]) || TRIM(["Bedrooms"]) == "" ? 3 : (DT_I4)TRIM(["Bedrooms"])</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1379,13 +1443,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bathrooms"]}) ? 2 : (DT_I4)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bathrooms"]}</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bathrooms"]}) || [TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bathrooms"]}) == "" ? 2 : (DT_I4)[TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Bathrooms"]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(["Bathrooms"]) ? 2 : (DT_I4)["Bathrooms"]</property>
+                          name="FriendlyExpression">ISNULL(["Bathrooms"]) || TRIM(["Bathrooms"]) == "" ? 2 : (DT_I4)TRIM(["Bathrooms"])</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1404,13 +1468,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Lot_Size_Acres"]}) ? 16.09512 : (DT_NUMERIC,10,2)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Lot_Size_Acres"]}</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Lot_Size_Acres"]}) || [TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Lot_Size_Acres"]}) == "" ? 16.09512 : (DT_NUMERIC,10,2)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Lot_Size_Acres"]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(["Lot_Size_Acres"]) ? 16.09512 : (DT_NUMERIC,10,2)["Lot_Size_Acres"]</property>
+                          name="FriendlyExpression">ISNULL(["Lot_Size_Acres"]) || TRIM(["Lot_Size_Acres"]) == "" ? 16.09512 : (DT_NUMERIC,10,2)["Lot_Size_Acres"]</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1429,13 +1493,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["House_Size_Sqft"]}) ? 3246.055 : (DT_NUMERIC,10,2)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["House_Size_Sqft"]}</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["House_Size_Sqft"]}) || [TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["House_Size_Sqft"]}) == "" ? 3246.055 : (DT_I4)[TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["House_Size_Sqft"]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(["House_Size_Sqft"]) ? 3246.055 : (DT_NUMERIC,10,2)["House_Size_Sqft"]</property>
+                          name="FriendlyExpression">ISNULL(["House_Size_Sqft"]) || TRIM(["House_Size_Sqft"]) == "" ? 3246.055 : (DT_I4)TRIM(["House_Size_Sqft"])</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1511,7 +1575,7 @@
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">UPPER(SUBSTRING([Data Conversion 2].["Property_Status"],1,1)) + LOWER(SUBSTRING([Data Conversion 2].["Property_Status"],2,LEN([Data Conversion 2].["Property_Status"])))</property>
+                          name="FriendlyExpression">UPPER(SUBSTRING(["Property_Status"],1,1)) + LOWER(SUBSTRING(["Property_Status"],2,LEN(["Property_Status"])))</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1536,7 +1600,7 @@
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">UPPER(SUBSTRING([Data Conversion 2].["City"],1,1)) + LOWER(SUBSTRING([Data Conversion 2].["City"],2,LEN([Data Conversion 2].["City"])))</property>
+                          name="FriendlyExpression">UPPER(SUBSTRING(["City"],1,1)) + LOWER(SUBSTRING(["City"],2,LEN(["City"])))</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1571,13 +1635,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[YEAR]((DT_DBTIMESTAMP)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]})</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]}) || [TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]}) == "" ? 0 : [YEAR]((DT_DBTIMESTAMP)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">YEAR((DT_DBTIMESTAMP)[Data Conversion 2].["Sale_Date"])</property>
+                          name="FriendlyExpression">ISNULL(["Sale_Date"]) || TRIM(["Sale_Date"]) == "" ? 0 : YEAR((DT_DBTIMESTAMP)["Sale_Date"])</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1593,13 +1657,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[MONTH]((DT_DBTIMESTAMP)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]})</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]}) || [TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]}) == "" ? 0 : [MONTH]((DT_DBTIMESTAMP)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">MONTH((DT_DBTIMESTAMP)[Data Conversion 2].["Sale_Date"])</property>
+                          name="FriendlyExpression">ISNULL(["Sale_Date"]) || TRIM(["Sale_Date"]) == "" ? 0 : MONTH((DT_DBTIMESTAMP)["Sale_Date"])</property>
                       </properties>
                     </outputColumn>
                     <outputColumn
@@ -1615,13 +1679,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[DAY]((DT_DBTIMESTAMP)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]})</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]}) || [TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]}) == "" ? 0 : [DAY]((DT_DBTIMESTAMP)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">DAY((DT_DBTIMESTAMP)[Data Conversion 2].["Sale_Date"])</property>
+                          name="FriendlyExpression">ISNULL(["Sale_Date"]) || TRIM(["Sale_Date"]) == "" ? 0 : DAY((DT_DBTIMESTAMP)["Sale_Date"])</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1688,6 +1752,81 @@
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
                           name="FriendlyExpression">REPLACE(["City"]," ","_")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input].Columns[&quot;Sale_Date&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;Sale_Date&quot;"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Sale_Date&quot;]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]}) || [TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]}) == "" ? NULL(DT_DBTIMESTAMP) : (DT_DBTIMESTAMP)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Sale_Date"]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(["Sale_Date"]) || TRIM(["Sale_Date"]) == "" ? NULL(DT_DBTIMESTAMP) : (DT_DBTIMESTAMP)["Sale_Date"]</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input].Columns[&quot;Street_Number&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;Street_Number&quot;"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Street_Number&quot;]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Street_Number"]}) || [TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Street_Number"]}) == "" ? 0 : (DT_I4)[TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Street_Number"]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(["Street_Number"]) || TRIM(["Street_Number"]) == "" ? 0 : (DT_I4)TRIM(["Street_Number"])</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input].Columns[&quot;Broker_ID&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;Broker_ID&quot;"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Broker_ID&quot;]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LEN]([TRIM](#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Broker_ID"]})) == 0 ? NULL(DT_I4) : (DT_I4)#{Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns["Broker_ID"]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LEN(TRIM(["Broker_ID"])) == 0 ? NULL(DT_I4) : (DT_I4)["Broker_ID"]</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -2130,6 +2269,270 @@
               </outputs>
             </component>
             <component
+              refId="Package\Data Flow Task\OLE DB Destination 1(part2)"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination 1(part2)"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Destination2]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\OLE DB Destination 1(part2).Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW 5]"
+                  connectionManagerRefId="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW 5]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Property_Status&quot;]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="&quot;Property_Status&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Property_Status]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Property_Status&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Price&quot;]"
+                      cachedDataType="r8"
+                      cachedName="&quot;Price&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Price&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Bedrooms&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Bedrooms&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Bedrooms]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Bedrooms&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Bathrooms&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Bathrooms&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Bathrooms]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Bathrooms&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Lot_Size_Acres&quot;]"
+                      cachedDataType="r8"
+                      cachedName="&quot;Lot_Size_Acres&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Lot_Size_Acres]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Lot_Size_Acres&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Street_Number&quot;]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="&quot;Street_Number&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Street_Number&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;City&quot;]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="&quot;City&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;City&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;State&quot;]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="&quot;State&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;State&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Zip_Code&quot;]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="&quot;Zip_Code&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Zip_Code]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Zip_Code&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;House_Size_Sqft&quot;]"
+                      cachedDataType="r8"
+                      cachedName="&quot;House_Size_Sqft&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[House_Size_Sqft]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;House_Size_Sqft&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Sale_Date&quot;]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="&quot;Sale_Date&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Sale_Date]"
+                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Sale_Date&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Year&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Year&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Year&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Month&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Month&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Month&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Day&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Day&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Day&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].Columns[&quot;Broker_ID&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;Broker_ID&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Broker_ID]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Broker_ID&quot;]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Broker_ID]"
+                      dataType="i4"
+                      name="Broker_ID" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Property_Status]"
+                      dataType="wstr"
+                      length="50"
+                      name="Property_Status" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Price]"
+                      dataType="wstr"
+                      length="50"
+                      name="Price" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Bedrooms]"
+                      dataType="ui1"
+                      name="Bedrooms" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Bathrooms]"
+                      dataType="ui1"
+                      name="Bathrooms" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Lot_Size_Acres]"
+                      dataType="r8"
+                      name="Lot_Size_Acres" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
+                      dataType="r8"
+                      name="Street_Number" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[City]"
+                      dataType="wstr"
+                      length="50"
+                      name="City" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="50"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Zip_Code]"
+                      dataType="i4"
+                      name="Zip_Code" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[House_Size_Sqft]"
+                      dataType="r8"
+                      name="House_Size_Sqft" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Sale_Date]"
+                      dataType="dbDate"
+                      name="Sale_Date" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      dataType="i2"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                      dataType="ui1"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                      dataType="ui1"
+                      name="Day" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\OLE DB Destination 1(part2).Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination 1(part2).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1(part2).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\OLE DB Destination 1(part2).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Data Flow Task\OLE DB Destination(part1)"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -2188,8 +2591,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\OLE DB Destination(part1).Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW]"
-                  connectionManagerRefId="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW]"
+                  connectionManagerID="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW 5]"
+                  connectionManagerRefId="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW 5]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2201,32 +2604,6 @@
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Broker_ID&quot;]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="&quot;Broker_ID&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Broker_ID]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Broker_ID&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Year&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Year&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Year]"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Year&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Month&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Month&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Month]"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Month&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Day&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Day&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Day]"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Day&quot;]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Property_Status&quot;]"
                       cachedDataType="wstr"
@@ -2260,7 +2637,8 @@
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[&quot;Lot_Size_Acres&quot;]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Street_Number&quot;]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="&quot;Street_Number&quot;"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[&quot;Street_Number&quot;]" />
@@ -2280,7 +2658,8 @@
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[&quot;State&quot;]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Zip_Code&quot;]"
-                      cachedDataType="i4"
+                      cachedDataType="wstr"
+                      cachedLength="50"
                       cachedName="&quot;Zip_Code&quot;"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Zip_Code]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[&quot;Zip_Code&quot;]" />
@@ -2296,6 +2675,32 @@
                       cachedName="&quot;Sale_Date&quot;"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Sale_Date]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[&quot;Sale_Date&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Year&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Year&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Year&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Month&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Month&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Month&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Day&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Day&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Day&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].Columns[&quot;Broker_ID&quot;]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="&quot;Broker_ID&quot;"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Broker_ID]"
+                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Broker_ID&quot;]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2326,7 +2731,7 @@
                       name="Lot_Size_Acres" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
-                      dataType="i4"
+                      dataType="r8"
                       name="Street_Number" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input].ExternalColumns[City]"
@@ -2383,267 +2788,6 @@
                       refId="Package\Data Flow Task\OLE DB Destination(part1).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Data Flow Task\OLE DB Destination(part1).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\OLE DB Destination(part2)"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="OLE DB Destination(part2)"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[Destination2]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\OLE DB Destination(part2).Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW]"
-                  connectionManagerRefId="Package.ConnectionManagers[MALAK\SQLEXPRESS.RealEstateDW]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Year&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Year&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Year]"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Year&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Month&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Month&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Month]"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Month&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Day&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Day&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Day]"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Day&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Broker_ID&quot;]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedName="&quot;Broker_ID&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Broker_ID]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[&quot;Broker_ID&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Property_Status&quot;]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="&quot;Property_Status&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Property_Status]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Property_Status&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Price&quot;]"
-                      cachedDataType="r8"
-                      cachedName="&quot;Price&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Price]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Price&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Bedrooms&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Bedrooms&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Bedrooms]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Bedrooms&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Bathrooms&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Bathrooms&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Bathrooms]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Bathrooms&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Lot_Size_Acres&quot;]"
-                      cachedDataType="r8"
-                      cachedName="&quot;Lot_Size_Acres&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Lot_Size_Acres]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Lot_Size_Acres&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Street_Number&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Street_Number&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Street_Number&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;City&quot;]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="&quot;City&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[City]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;City&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;State&quot;]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="&quot;State&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[State]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;State&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Zip_Code&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Zip_Code&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Zip_Code]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Zip_Code&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;House_Size_Sqft&quot;]"
-                      cachedDataType="r8"
-                      cachedName="&quot;House_Size_Sqft&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[House_Size_Sqft]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;House_Size_Sqft&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].Columns[&quot;Sale_Date&quot;]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="&quot;Sale_Date&quot;"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Sale_Date]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output].Columns[&quot;Sale_Date&quot;]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Broker_ID]"
-                      dataType="i4"
-                      name="Broker_ID" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Property_Status]"
-                      dataType="wstr"
-                      length="50"
-                      name="Property_Status" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Price]"
-                      dataType="r8"
-                      name="Price" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Bedrooms]"
-                      dataType="ui1"
-                      name="Bedrooms" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Bathrooms]"
-                      dataType="ui1"
-                      name="Bathrooms" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Lot_Size_Acres]"
-                      dataType="r8"
-                      name="Lot_Size_Acres" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
-                      dataType="i4"
-                      name="Street_Number" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[City]"
-                      dataType="wstr"
-                      length="50"
-                      name="City" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[State]"
-                      dataType="wstr"
-                      length="50"
-                      name="State" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Zip_Code]"
-                      dataType="i4"
-                      name="Zip_Code" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[House_Size_Sqft]"
-                      dataType="r8"
-                      name="House_Size_Sqft" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Sale_Date]"
-                      dataType="dbDate"
-                      name="Sale_Date" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Year]"
-                      dataType="i2"
-                      name="Year" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Month]"
-                      dataType="ui1"
-                      name="Month" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input].ExternalColumns[Day]"
-                      dataType="ui1"
-                      name="Day" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\OLE DB Destination(part2).Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination(part2).Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination(part2).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\OLE DB Destination(part2).Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3904,14 +4048,14 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
               startId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Default Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Data Conversion Output]"
-              endId="Package\Data Flow Task\OLE DB Destination(part2).Inputs[OLE DB Destination Input]"
-              name="Data Conversion Output"
-              startId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output]" />
-            <path
-              refId="Package\Data Flow Task.Paths[Data Conversion Output1]"
               endId="Package\Data Flow Task\OLE DB Destination(part1).Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
               startId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Data Conversion Output1]"
+              endId="Package\Data Flow Task\OLE DB Destination 1(part2).Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\Data Flow Task\Data Conversion 2.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Derived Column Output]"
               endId="Package\Data Flow Task\Derived Column 2.Inputs[Derived Column Input]"
@@ -3971,13 +4115,13 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Data Flow Task\Derived Column"
           TopLeft="514,101" />
         <NodeLayout
-          Size="210,42"
-          Id="Package\Data Flow Task\OLE DB Destination(part1)"
-          TopLeft="120,741" />
-        <NodeLayout
           Size="168,42"
           Id="Package\Data Flow Task\Conditional Split 2"
           TopLeft="335,486" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Data Flow Task\Flat File Source"
+          TopLeft="280,10" />
         <NodeLayout
           Size="170,42"
           Id="Package\Data Flow Task\Data Conversion 2 1"
@@ -3995,14 +4139,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Id="Package\Data Flow Task\Script Component"
           TopLeft="183,407" />
         <NodeLayout
-          Size="156,42"
-          Id="Package\Data Flow Task\Flat File Source"
-          TopLeft="280,10" />
-        <NodeLayout
-          Size="210,42"
-          Id="Package\Data Flow Task\OLE DB Destination(part2)"
-          TopLeft="510,744" />
-        <NodeLayout
           Size="170,42"
           Id="Package\Data Flow Task\Data Conversion 2"
           TopLeft="525,639" />
@@ -4014,30 +4150,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           Size="167,42"
           Id="Package\Data Flow Task\Derived Column 2"
           TopLeft="123,319" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Case 1]"
-          TopLeft="244,123">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="270,0"
-              Start="0,0"
-              End="262.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="262.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="107.37078125,5,47.7584375,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Output 0]"
           TopLeft="266.5,449">
@@ -4137,9 +4249,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-112.5,61.5,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4173,9 +4283,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="22,28,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -4204,52 +4312,6 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
                     Point3="-129,-27" />
                   <mssgle:LineSegment
                     End="-242.5,-27" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-133,1,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output1]"
-          TopLeft="223.5,687">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,54"
-              Start="0,0"
-              End="0,46.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,46.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
-          TopLeft="612.5,681">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,63"
-              Start="0,0"
-              End="0,55.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,55.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4290,7 +4352,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="40.4749609375,29,158.550078125,16"
+              BoundingBox="49.13609375,29,141.2278125,11.658203125"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4326,7 +4388,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="66.7630338541667,50.0283018867925,30.807265625,9.5732421875"
+              BoundingBox="66.7630338541665,50.0283018867925,30.807265625,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -4362,8 +4424,84 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-100.384752604167,52.4622641509434,30.436171875,9.5537109375"
+              BoundingBox="-100.384752604166,52.4622641509434,30.436171875,9.5537109375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Case 1]"
+          TopLeft="244,123">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="270,0"
+              Start="0,0"
+              End="262.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="262.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="116.0319140625,5,30.436171875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="210,42"
+          Id="Package\Data Flow Task\OLE DB Destination(part1)"
+          TopLeft="116,739" />
+        <NodeLayout
+          Size="219,42"
+          Id="Package\Data Flow Task\OLE DB Destination 1(part2)"
+          TopLeft="504,729" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output]"
+          TopLeft="221.5,687">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output1]"
+          TopLeft="611.75,681">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -4383,7 +4521,7 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA]]></arrayElement>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\OLE DB Destination(part2)">
+    design-time-name="Package\Data Flow Task\OLE DB Destination 1(part2)">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
