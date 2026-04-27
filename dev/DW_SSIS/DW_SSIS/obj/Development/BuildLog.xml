@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
-    <Name>dw_ssis</Name>
-    <LastWriteTime>2026-04-21T20:49:13.8989436Z</LastWriteTime>
+    <Name>DW_SSIS</Name>
+    <LastWriteTime>2026-04-27T05:51:30.9477554Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>Package.dtsx</Name>
-      <LastWriteTime>2026-04-21T21:05:35.0580203Z</LastWriteTime>
+      <LastWriteTime>2026-04-27T06:12:00.7490538Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

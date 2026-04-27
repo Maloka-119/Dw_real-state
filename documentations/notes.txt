@@ -1,1 +1,1 @@
-numer of rows from alteryx is 20478
+numer of rows from alteryx in des2 is 19100
