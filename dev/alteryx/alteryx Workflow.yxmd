@@ -202,9 +202,9 @@ Bedrooms = I...</DefaultAnnotationText>
       <Properties>
         <Configuration>
           <FormulaFields>
-            <FormulaField expression="Uppercase(Left([City],1)) + Lowercase(Right([City], Length([City])-1))" field="City" size="254" type="V_String" enabled="true" />
-            <FormulaField expression="Uppercase(Left([Property_Status],1)) + Lowercase(Right([Property_Status], Length([Property_Status])-1))" field="Property_Status" size="254" type="V_String" enabled="true" />
-            <FormulaField expression="Replace([State], &quot; &quot;, &quot;_&quot;)" field="State" size="254" type="V_String" enabled="true" />
+            <FormulaField expression="Uppercase(Left([City],1)) + Lowercase(Right([City], Length([City])-1))" field="City" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="Uppercase(Left([Property_Status],1)) + Lowercase(Right([Property_Status], Length([Property_Status])-1))" field="Property_Status" size="1073741823" type="V_WString" enabled="true" />
+            <FormulaField expression="Replace([State], &quot; &quot;, &quot;_&quot;)" field="State" size="1073741823" type="V_WString" enabled="true" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -294,41 +294,6 @@ Day = DateTi...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
     </Node>
-    <Node ToolID="24">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1530" y="174" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="Broker_ID" selected="True" />
-            <SelectField field="Property_Status" selected="True" />
-            <SelectField field="price" selected="True" />
-            <SelectField field="Bedrooms" selected="True" />
-            <SelectField field="Bathrooms" selected="True" />
-            <SelectField field="Lot_Size_Acres" selected="True" />
-            <SelectField field="Street_Number" selected="True" />
-            <SelectField field="city" selected="True" />
-            <SelectField field="state" selected="True" />
-            <SelectField field="zip_code" selected="True" />
-            <SelectField field="House_Size_Sqft" selected="True" />
-            <SelectField field="Sale_Date" selected="True" />
-            <SelectField field="Year" selected="True" />
-            <SelectField field="Month" selected="True" />
-            <SelectField field="Day" selected="True" />
-            <SelectField field="*Unknown" selected="False" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
     <Node ToolID="25">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
         <Position x="1482" y="342" />
@@ -365,44 +330,9 @@ Day = DateTi...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
     </Node>
-    <Node ToolID="27">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1734" y="342" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <OrderChanged value="False" />
-          <CommaDecimal value="False" />
-          <SelectFields>
-            <SelectField field="Broker_ID" selected="True" />
-            <SelectField field="Property_Status" selected="True" />
-            <SelectField field="price" selected="True" />
-            <SelectField field="Bedrooms" selected="True" />
-            <SelectField field="Bathrooms" selected="True" />
-            <SelectField field="Lot_Size_Acres" selected="True" />
-            <SelectField field="Street_Number" selected="True" />
-            <SelectField field="city" selected="True" />
-            <SelectField field="state" selected="True" />
-            <SelectField field="zip_code" selected="True" />
-            <SelectField field="House_Size_Sqft" selected="True" />
-            <SelectField field="Sale_Date" selected="True" />
-            <SelectField field="Year" selected="True" />
-            <SelectField field="Month" selected="True" />
-            <SelectField field="Day" selected="True" />
-            <SelectField field="*Unknown" selected="False" />
-          </SelectFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-    </Node>
-    <Node ToolID="30">
+    <Node ToolID="32">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1806" y="174" />
+        <Position x="1686" y="174" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -416,7 +346,7 @@ Day = DateTi...</DefaultAnnotationText>
             <TableStyle>Quoted</TableStyle>
             <PreSQL />
             <TransactionMessages>False</TransactionMessages>
-            <OutputOption>Overwrite</OutputOption>
+            <OutputOption>Delete</OutputOption>
           </FormatSpecificOptions>
           <MultiFile value="False" />
         </Configuration>
@@ -430,9 +360,9 @@ Query=Destination1</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
-    <Node ToolID="31">
+    <Node ToolID="33">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1854" y="342" />
+        <Position x="1866" y="342" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -446,7 +376,7 @@ Query=Destination1</DefaultAnnotationText>
             <TableStyle>Quoted</TableStyle>
             <PreSQL />
             <TransactionMessages>False</TransactionMessages>
-            <OutputOption>Overwrite</OutputOption>
+            <OutputOption>Delete</OutputOption>
           </FormatSpecificOptions>
           <MultiFile value="False" />
         </Configuration>
@@ -459,6 +389,94 @@ Query=Destination2</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1554" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="acre_lot" selected="False" rename="Lot_Size_Acres" type="Float" size="4" />
+            <SelectField field="bath" selected="False" rename="Bathrooms" type="Int32" size="4" />
+            <SelectField field="bed" selected="False" rename="Bedrooms" type="Int32" size="4" />
+            <SelectField field="brokered_by" selected="False" rename="Broker_ID" type="Float" size="4" />
+            <SelectField field="house_size" selected="False" rename="House_Size_Sqft" type="Float" size="4" />
+            <SelectField field="prev_sold_date" selected="False" rename="Sale_Date" type="V_WString" size="2147483647" />
+            <SelectField field="status" selected="False" rename="Property_Status" type="V_WString" size="2147483647" />
+            <SelectField field="street" selected="False" rename="Street_Number" type="V_WString" size="2147483647" />
+            <SelectField field="Bathrooms" selected="True" />
+            <SelectField field="Bedrooms" selected="True" />
+            <SelectField field="Broker_ID" selected="True" />
+            <SelectField field="city" selected="True" rename="City" size="100" />
+            <SelectField field="Day" selected="True" />
+            <SelectField field="House_Size_Sqft" selected="True" />
+            <SelectField field="Lot_Size_Acres" selected="True" />
+            <SelectField field="Month" selected="True" />
+            <SelectField field="price" selected="True" rename="Price" />
+            <SelectField field="Property_Status" selected="True" size="100" />
+            <SelectField field="RecordID" selected="False" />
+            <SelectField field="Sale_Date" selected="True" type="Date" size="10" />
+            <SelectField field="state" selected="True" rename="State" size="50" />
+            <SelectField field="Street_Number" selected="True" size="100" />
+            <SelectField field="Year" selected="True" />
+            <SelectField field="zip_code" selected="True" rename="Zip_Code" size="20" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1758" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="acre_lot" selected="False" rename="Lot_Size_Acres" type="Float" size="4" />
+            <SelectField field="bath" selected="False" rename="Bathrooms" type="Int32" size="4" />
+            <SelectField field="bed" selected="False" rename="Bedrooms" type="Int32" size="4" />
+            <SelectField field="brokered_by" selected="False" rename="Broker_ID" type="Float" size="4" />
+            <SelectField field="house_size" selected="False" rename="House_Size_Sqft" type="Float" size="4" />
+            <SelectField field="prev_sold_date" selected="False" rename="Sale_Date" type="V_WString" size="2147483647" />
+            <SelectField field="status" selected="False" rename="Property_Status" type="V_WString" size="2147483647" />
+            <SelectField field="street" selected="False" rename="Street_Number" type="V_WString" size="2147483647" />
+            <SelectField field="Bathrooms" selected="True" />
+            <SelectField field="Bedrooms" selected="True" />
+            <SelectField field="Broker_ID" selected="True" />
+            <SelectField field="city" selected="True" rename="City" size="100" />
+            <SelectField field="Day" selected="True" />
+            <SelectField field="House_Size_Sqft" selected="True" />
+            <SelectField field="Lot_Size_Acres" selected="True" />
+            <SelectField field="Month" selected="True" />
+            <SelectField field="price" selected="True" rename="Price" />
+            <SelectField field="Property_Status" selected="True" size="100" />
+            <SelectField field="RecordID" selected="False" />
+            <SelectField field="Sale_Date" selected="True" type="Date" size="10" />
+            <SelectField field="state" selected="True" rename="State" size="50" />
+            <SelectField field="Street_Number" selected="True" size="100" />
+            <SelectField field="Year" selected="True" />
+            <SelectField field="zip_code" selected="True" rename="Zip_Code" size="20" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
   </Nodes>
   <Connections>
@@ -516,11 +534,7 @@ Query=Destination2</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="23" Connection="Output" />
-      <Destination ToolID="24" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="24" Connection="Output" />
-      <Destination ToolID="30" Connection="Input" />
+      <Destination ToolID="35" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="25" Connection="Output" />
@@ -528,11 +542,15 @@ Query=Destination2</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="26" Connection="Output" />
-      <Destination ToolID="27" Connection="Input" />
+      <Destination ToolID="37" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="27" Connection="Output" />
-      <Destination ToolID="31" Connection="Input" />
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="37" Connection="Output" />
+      <Destination ToolID="33" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

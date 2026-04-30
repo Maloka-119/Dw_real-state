@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{CDAA488C-A8F9-4144-9CA7-B9A575E66F9A}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{48A3A4F8-F074-42AA-9F87-370EF9D0857D}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -33,6 +33,18 @@
       DTS:CreationName="EXCEL"
       DTS:DTSID="{BE4B53D3-C53F-4269-9E80-32BA21FB826D}"
       DTS:ObjectName="Excel Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=D:\Level 4\Semester 2\Data warehouse\Section\dataset_parts\ssis_half.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{D1050B44-7A1A-4C50-8840-EF4CBC753B93}"
+      DTS:ObjectName="Excel Connection Manager 2">
       <DTS:ObjectData>
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
@@ -88,6 +100,12 @@
                       cachedLength="255"
                       cachedName="Street_Number"
                       lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Street_Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[Sale_Date]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Sale_Date"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sale_Date]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -107,13 +125,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Street_Number]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Street_Number]})</property>
+                      name="Expression">![ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Street_Number]}) &amp;&amp; ![ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sale_Date]})</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(Street_Number) &amp;&amp; !ISNULL(Street_Number)</property>
+                      name="FriendlyExpression">!ISNULL(Street_Number) &amp;&amp; !ISNULL(Sale_Date)</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -197,13 +215,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">(DT_NUMERIC,10,2)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]} &gt; 1000000</property>
+                      name="Expression">(DT_R8)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]} &gt; 1000000</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">(DT_NUMERIC,10,2)Price &gt; 1000000</property>
+                      name="FriendlyExpression">(DT_R8)Price &gt; 1000000</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -242,6 +260,448 @@
                       refId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Data Flow Task\Conditional Split 1.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Data Conversion 1"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Broker_ID]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Broker_ID"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Broker_ID]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Property_Status]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Property_Status"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Property_Status]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Price]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Price"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Bedrooms]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Bedrooms"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bedrooms]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Bathrooms]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Bathrooms"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bathrooms]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Lot_Size_Acres]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Lot_Size_Acres"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Lot_Size_Acres]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Street_Number]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Street_Number"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Street_Number]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[City]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="City"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[City]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="State"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Zip_Code]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Zip_Code"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Zip_Code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[House_Size_Sqft]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="House_Size_Sqft"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[House_Size_Sqft]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[Sale_Date]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Sale_Date"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sale_Date]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[&quot;Year&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Year&quot;"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Year&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[&quot;Month&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Month&quot;"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Month&quot;]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input].Columns[&quot;Day&quot;]"
+                      cachedDataType="i4"
+                      cachedName="&quot;Day&quot;"
+                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Day&quot;]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Broker_ID]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Broker_ID]"
+                      name="Broker_ID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Broker_ID]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Property_Status]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Property_Status]"
+                      name="Property_Status"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Property_Status]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Price]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Price]"
+                      name="Price"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Bedrooms]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Bedrooms]"
+                      name="Bedrooms"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bedrooms]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Bathrooms]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Bathrooms]"
+                      name="Bathrooms"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bathrooms]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Lot_Size_Acres]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Lot_Size_Acres]"
+                      name="Lot_Size_Acres"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Lot_Size_Acres]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Street_Number]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Street_Number]"
+                      name="Street_Number"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Street_Number]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[City]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[City]"
+                      name="City"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[City]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[State]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Zip_Code]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="20"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Zip_Code]"
+                      name="Zip_Code"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Zip_Code]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[House_Size_Sqft]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[House_Size_Sqft]"
+                      name="House_Size_Sqft"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[House_Size_Sqft]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Sale_Date]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Sale_Date]"
+                      name="Sale_Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sale_Date]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns["Year"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns["Month"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Day]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Day]"
+                      name="Day"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns["Day"]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -384,7 +844,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="255"
+                      length="100"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Property_Status]"
                       name="Property_Status"
                       truncationRowDisposition="FailComponent">
@@ -462,7 +922,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Lot_Size_Acres]"
-                      dataType="r4"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Lot_Size_Acres]"
@@ -485,7 +945,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="255"
+                      length="100"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Street_Number]"
                       name="Street_Number"
                       truncationRowDisposition="FailComponent">
@@ -506,7 +966,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="255"
+                      length="100"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[City]"
                       name="City"
                       truncationRowDisposition="FailComponent">
@@ -527,7 +987,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="255"
+                      length="50"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[State]"
                       name="State"
                       truncationRowDisposition="FailComponent">
@@ -548,7 +1008,7 @@
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      length="255"
+                      length="20"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Zip_Code]"
                       name="Zip_Code"
                       truncationRowDisposition="FailComponent">
@@ -566,7 +1026,7 @@
                     </outputColumn>
                     <outputColumn
                       refId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[House_Size_Sqft]"
-                      dataType="r4"
+                      dataType="r8"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[House_Size_Sqft]"
@@ -692,448 +1152,6 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\Data Conversion 2 1 2"
-              componentClassID="Microsoft.DataConvert"
-              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Data Conversion"
-              name="Data Conversion 2 1 2"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input]"
-                  name="Data Conversion Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[Broker_ID]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Broker_ID"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Broker_ID]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[Property_Status]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Property_Status"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Property_Status]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[Price]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Price"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[Bedrooms]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Bedrooms"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bedrooms]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[Bathrooms]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Bathrooms"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bathrooms]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[Lot_Size_Acres]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Lot_Size_Acres"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Lot_Size_Acres]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[Street_Number]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Street_Number"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Street_Number]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[City]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="City"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[City]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[State]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="State"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[State]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[Zip_Code]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Zip_Code"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Zip_Code]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[House_Size_Sqft]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="House_Size_Sqft"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[House_Size_Sqft]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[Sale_Date]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="Sale_Date"
-                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sale_Date]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[&quot;Year&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Year&quot;"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Year&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[&quot;Month&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Month&quot;"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Month&quot;]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input].Columns[&quot;Day&quot;]"
-                      cachedDataType="i4"
-                      cachedName="&quot;Day&quot;"
-                      lineageId="Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns[&quot;Day&quot;]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output]"
-                  exclusionGroup="1"
-                  name="Data Conversion Output"
-                  synchronousInputId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Broker_ID]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Broker_ID]"
-                      name="Broker_ID"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Broker_ID]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Property_Status]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Property_Status]"
-                      name="Property_Status"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Property_Status]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Price]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Price]"
-                      name="Price"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Bedrooms]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Bedrooms]"
-                      name="Bedrooms"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bedrooms]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Bathrooms]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Bathrooms]"
-                      name="Bathrooms"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bathrooms]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Lot_Size_Acres]"
-                      dataType="r4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Lot_Size_Acres]"
-                      name="Lot_Size_Acres"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Lot_Size_Acres]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Street_Number]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Street_Number]"
-                      name="Street_Number"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Street_Number]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[City]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[City]"
-                      name="City"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[City]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[State]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[State]"
-                      name="State"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[State]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Zip_Code]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      length="255"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Zip_Code]"
-                      name="Zip_Code"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Zip_Code]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[House_Size_Sqft]"
-                      dataType="r4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[House_Size_Sqft]"
-                      name="House_Size_Sqft"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[House_Size_Sqft]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Sale_Date]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Sale_Date]"
-                      name="Sale_Date"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Sale_Date]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Year]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Year]"
-                      name="Year"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns["Year"]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Month]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Month]"
-                      name="Month"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns["Month"]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Day]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Day]"
-                      name="Day"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Specifies the input column used as the source of data for the conversion."
-                          name="SourceInputColumnLineageID">#{Package\Data Flow Task\Derived Column 1.Outputs[Derived Column Output].Columns["Day"]}</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Data Conversion Error Output"
-                  synchronousInputId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Data Flow Task\Derived Column"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -1161,13 +1179,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">([ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]}) || [LEN]([TRIM]((DT_WSTR,50)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]})) == 0) ? 569592.5 : (DT_NUMERIC,10,2)(DT_R8)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]}</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]}) ? 569592.5 : (DT_R8)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Price]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">(ISNULL(Price) || LEN(TRIM((DT_WSTR,50)Price)) == 0) ? 569592.5 : (DT_NUMERIC,10,2)(DT_R8)Price</property>
+                          name="FriendlyExpression">ISNULL(Price) ? 569592.5 : (DT_R8)Price</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1185,13 +1203,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bedrooms]}) || [TRIM](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bedrooms]}) == "" ? 3 : (DT_I4)[TRIM](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bedrooms]})</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bedrooms]}) ? 3 : (DT_I4)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bedrooms]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(Bedrooms) || TRIM(Bedrooms) == "" ? 3 : (DT_I4)TRIM(Bedrooms)</property>
+                          name="FriendlyExpression">ISNULL(Bedrooms) ? 3 : (DT_I4)Bedrooms</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1209,13 +1227,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bathrooms]}) || [TRIM](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bathrooms]}) == "" ? 2 : (DT_I4)[TRIM](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bathrooms]})</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bathrooms]}) ? 2 : (DT_I4)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Bathrooms]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(Bathrooms) || TRIM(Bathrooms) == "" ? 2 : (DT_I4)TRIM(Bathrooms)</property>
+                          name="FriendlyExpression">ISNULL(Bathrooms) ? 2 : (DT_I4)Bathrooms</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1233,13 +1251,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Lot_Size_Acres]}) || [TRIM](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Lot_Size_Acres]}) == "" ? 16.09512 : (DT_NUMERIC,10,2)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Lot_Size_Acres]}</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Lot_Size_Acres]}) ? 16.09512 : (DT_R8)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[Lot_Size_Acres]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(Lot_Size_Acres) || TRIM(Lot_Size_Acres) == "" ? 16.09512 : (DT_NUMERIC,10,2)Lot_Size_Acres</property>
+                          name="FriendlyExpression">ISNULL(Lot_Size_Acres) ? 16.09512 : (DT_R8)Lot_Size_Acres</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -1257,13 +1275,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[House_Size_Sqft]}) || [TRIM](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[House_Size_Sqft]}) == "" ? 3246.055 : (DT_I4)[TRIM](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[House_Size_Sqft]})</property>
+                          name="Expression">[ISNULL](#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[House_Size_Sqft]}) ? 3246.055 : (DT_R8)#{Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[House_Size_Sqft]}</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(House_Size_Sqft) || TRIM(House_Size_Sqft) == "" ? 3246.055 : (DT_I4)TRIM(House_Size_Sqft)</property>
+                          name="FriendlyExpression">ISNULL(House_Size_Sqft) ? 3246.055 : (DT_R8)House_Size_Sqft</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
@@ -1667,8 +1685,8 @@
               <connections>
                 <connection
                   refId="Package\Data Flow Task\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 1]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 1]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 2]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 2]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2055,7 +2073,7 @@
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Property_Status]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="100"
                       cachedName="Property_Status"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property_Status]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Property_Status]" />
@@ -2079,41 +2097,41 @@
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Bathrooms]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Lot_Size_Acres]"
-                      cachedDataType="r4"
+                      cachedDataType="r8"
                       cachedName="Lot_Size_Acres"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Lot_Size_Acres]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Lot_Size_Acres]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Street_Number]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="100"
                       cachedName="Street_Number"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Street_Number]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[City]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="100"
                       cachedName="City"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[City]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[State]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="50"
                       cachedName="State"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[State]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Zip_Code]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="20"
                       cachedName="Zip_Code"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Zip_Code]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[Zip_Code]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[House_Size_Sqft]"
-                      cachedDataType="r4"
+                      cachedDataType="r8"
                       cachedName="House_Size_Sqft"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[House_Size_Sqft]"
                       lineageId="Package\Data Flow Task\Data Conversion 2 1.Outputs[Data Conversion Output].Columns[House_Size_Sqft]" />
@@ -2128,15 +2146,16 @@
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Broker_ID]"
-                      dataType="r4"
+                      dataType="r8"
                       name="Broker_ID" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Property_Status]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="Property_Status" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
-                      dataType="r4"
+                      dataType="r8"
                       name="Price" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Bedrooms]"
@@ -2148,31 +2167,35 @@
                       name="Bathrooms" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Lot_Size_Acres]"
-                      dataType="r4"
+                      dataType="r8"
                       name="Lot_Size_Acres" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="Street_Number" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[City]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="City" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[State]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="50"
                       name="State" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Zip_Code]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="20"
                       name="Zip_Code" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[House_Size_Sqft]"
-                      dataType="r4"
+                      dataType="r8"
                       name="House_Size_Sqft" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sale_Date]"
-                      dataType="nText"
+                      dataType="dbDate"
                       name="Sale_Date" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
@@ -2291,110 +2314,111 @@
                       cachedDataType="i4"
                       cachedName="Year"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Year]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Year]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Month]"
                       cachedDataType="i4"
                       cachedName="Month"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Month]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Month]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Day]"
                       cachedDataType="i4"
                       cachedName="Day"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Day]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Day]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Broker_ID]"
                       cachedDataType="r8"
                       cachedName="Broker_ID"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Broker_ID]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Broker_ID]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Broker_ID]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Property_Status]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="100"
                       cachedName="Property_Status"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Property_Status]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Property_Status]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Property_Status]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Price]"
                       cachedDataType="r8"
                       cachedName="Price"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Price]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Price]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Bedrooms]"
                       cachedDataType="i4"
                       cachedName="Bedrooms"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Bedrooms]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Bedrooms]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Lot_Size_Acres]"
-                      cachedDataType="r4"
-                      cachedName="Lot_Size_Acres"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Lot_Size_Acres]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Lot_Size_Acres]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Bedrooms]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Bathrooms]"
                       cachedDataType="i4"
                       cachedName="Bathrooms"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Bathrooms]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Bathrooms]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Bathrooms]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Lot_Size_Acres]"
+                      cachedDataType="r8"
+                      cachedName="Lot_Size_Acres"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Lot_Size_Acres]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Lot_Size_Acres]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Street_Number]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="100"
                       cachedName="Street_Number"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Street_Number]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Street_Number]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[City]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="100"
                       cachedName="City"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[City]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[City]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[City]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[State]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="50"
                       cachedName="State"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[State]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[State]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[House_Size_Sqft]"
-                      cachedDataType="r4"
-                      cachedName="House_Size_Sqft"
-                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[House_Size_Sqft]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[House_Size_Sqft]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[State]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Zip_Code]"
                       cachedDataType="wstr"
-                      cachedLength="255"
+                      cachedLength="20"
                       cachedName="Zip_Code"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Zip_Code]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Zip_Code]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Zip_Code]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[House_Size_Sqft]"
+                      cachedDataType="r8"
+                      cachedName="House_Size_Sqft"
+                      externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[House_Size_Sqft]"
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[House_Size_Sqft]" />
                     <inputColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[Sale_Date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Sale_Date"
                       externalMetadataColumnId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Sale_Date]"
-                      lineageId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output].Columns[Sale_Date]" />
+                      lineageId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output].Columns[Sale_Date]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Broker_ID]"
-                      dataType="r4"
+                      dataType="r8"
                       name="Broker_ID" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Property_Status]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="Property_Status" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Price]"
-                      dataType="r4"
+                      dataType="r8"
                       name="Price" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Bedrooms]"
@@ -2406,31 +2430,35 @@
                       name="Bathrooms" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Lot_Size_Acres]"
-                      dataType="r4"
+                      dataType="r8"
                       name="Lot_Size_Acres" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Street_Number]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="Street_Number" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[City]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="100"
                       name="City" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[State]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="50"
                       name="State" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Zip_Code]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="20"
                       name="Zip_Code" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[House_Size_Sqft]"
-                      dataType="r4"
+                      dataType="r8"
                       name="House_Size_Sqft" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Sale_Date]"
-                      dataType="nText"
+                      dataType="dbDate"
                       name="Sale_Date" />
                     <externalMetadataColumn
                       refId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
@@ -2546,7 +2574,7 @@
               refId="Package\Data Flow Task.Paths[Data Conversion Output1]"
               endId="Package\Data Flow Task\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
               name="Data Conversion Output"
-              startId="Package\Data Flow Task\Data Conversion 2 1 2.Outputs[Data Conversion Output]" />
+              startId="Package\Data Flow Task\Data Conversion 1.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Derived Column Output]"
               endId="Package\Data Flow Task\Conditional Split 1.Inputs[Conditional Split Input]"
@@ -2574,7 +2602,7 @@
               startId="Package\Data Flow Task\Percentage Sampling.Outputs[ssis_part1]" />
             <path
               refId="Package\Data Flow Task.Paths[ssis_part2]"
-              endId="Package\Data Flow Task\Data Conversion 2 1 2.Inputs[Data Conversion Input]"
+              endId="Package\Data Flow Task\Data Conversion 1.Inputs[Data Conversion Input]"
               name="ssis_part2"
               startId="Package\Data Flow Task\Percentage Sampling.Outputs[ssis_part2]" />
           </paths>
@@ -2619,21 +2647,17 @@
           Id="Package\Data Flow Task\OLE DB Destination"
           TopLeft="125,662" />
         <NodeLayout
-          Size="167,42"
-          Id="Package\Data Flow Task\Derived Column 2"
-          TopLeft="200,296" />
+          Size="186,42"
+          Id="Package\Data Flow Task\OLE DB Destination 1"
+          TopLeft="448,661" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Data Flow Task\Data Conversion 1"
+          TopLeft="456,563" />
         <NodeLayout
           Size="170,42"
           Id="Package\Data Flow Task\Data Conversion 2 1"
           TopLeft="126,564" />
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Data Flow Task\Derived Column 1"
-          TopLeft="526,291" />
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Data Flow Task\Data Conversion 2 1 2"
-          TopLeft="458,561" />
         <NodeLayout
           Size="158,42"
           Id="Package\Data Flow Task\Derived Column"
@@ -2643,47 +2667,17 @@
           Id="Package\Data Flow Task\Percentage Sampling"
           TopLeft="247,408" />
         <NodeLayout
+          Size="167,42"
+          Id="Package\Data Flow Task\Derived Column 1"
+          TopLeft="526,291" />
+        <NodeLayout
           Size="159,42"
           Id="Package\Data Flow Task\Conditional Split"
           TopLeft="242,125" />
         <NodeLayout
-          Size="186,42"
-          Id="Package\Data Flow Task\OLE DB Destination 1"
-          TopLeft="458,654" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Data Conversion Output1]"
-          TopLeft="543,603">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8,51"
-              Start="0,0"
-              End="8,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.5"
-                    Point2="0,25.5"
-                    Point3="4,25.5" />
-                  <mssgle:LineSegment
-                    End="4,25.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4,25.5"
-                    Point2="8,25.5"
-                    Point3="8,29.5" />
-                  <mssgle:LineSegment
-                    End="8,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="167,42"
+          Id="Package\Data Flow Task\Derived Column 2"
+          TopLeft="200,296" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Data Conversion Output]"
           TopLeft="212.25,606">
@@ -2772,33 +2766,33 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="174.666666666667,111"
+              EndConnector="172.666666666667,113"
               Start="0,0"
-              End="174.666666666667,103.5">
+              End="172.666666666667,105.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,40.9741379310345" />
+                    End="0,41.7844827586207" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,40.9741379310345"
-                    Point2="0,44.9741379310345"
-                    Point3="4,44.9741379310345" />
+                    Point1="0,41.7844827586207"
+                    Point2="0,45.7844827586207"
+                    Point3="4,45.7844827586207" />
                   <mssgle:LineSegment
-                    End="170.666666666667,44.9741379310345" />
+                    End="168.666666666667,45.7844827586207" />
                   <mssgle:CubicBezierSegment
-                    Point1="170.666666666667,44.9741379310345"
-                    Point2="174.666666666667,44.9741379310345"
-                    Point3="174.666666666667,48.9741379310345" />
+                    Point1="168.666666666667,45.7844827586207"
+                    Point2="172.666666666667,45.7844827586207"
+                    Point3="172.666666666667,49.7844827586207" />
                   <mssgle:LineSegment
-                    End="174.666666666667,103.5" />
+                    End="172.666666666667,105.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="64.5621419270835,49.9741379310345,45.5423828125,11.43359375"
+              BoundingBox="63.5621419270833,50.7844827586207,45.5423828125,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2954,6 +2948,28 @@
                     Point3="-182,27" />
                   <mssgle:LineSegment
                     End="-182,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Data Conversion Output1]"
+          TopLeft="541,605">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
